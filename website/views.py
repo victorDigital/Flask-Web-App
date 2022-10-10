@@ -14,9 +14,10 @@ def home():
     return render_template("home.html")
 
 
-@views.route('/home')
+@views.route('/about')
 def index():
     fact = randfacts.getFact()
+    print(fact)
     return render_template("index.html", fact=fact)
 
 
