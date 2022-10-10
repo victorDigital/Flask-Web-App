@@ -41,7 +41,7 @@ def projects():
     md2 = markdown.Markdown()
     readme_file2 = requests.get(link2)
     html2 = md2.convert(readme_file2.text)
-    link3 = 'https://raw.githubusercontent.com/victorDigital/lectioToGoogleCalendar/main/README.md'
+    link3 = 'https://raw.githubusercontent.com/victorDigital/Flask-Web-App/main/README.md'
     md3 = markdown.Markdown()
     readme_file3 = requests.get(link3)
     html3 = md3.convert(readme_file3.text)
