@@ -3,9 +3,17 @@
 <h1>Contact</h1>
 <hr class="border" />
 <ul class="list-group">
-    <li class="list-group-item">GitHub</li>
-    <li class="list-group-item">Twitter</li>
-    <li class="list-group-item">Facebook</li>
+    <li class="list-group-item"><a href="https://github.com/victorDigital">GitHub</a></li>
+    <li class="list-group-item"><a href="https://www.youtube.com/channel/UCI7nDgD-DrrcYkB-BuJ3QPg">YouTube</a>
+    </li>
+    <li class="list-group-item">
+        <strong>Email: </strong>victordj587@gmail.com
+    </li>
+    {% if current_user.is_authenticated %}
+    <li class="list-group-item"><strong>Phone: </strong>+45 71781950</li>
+    {% else %}
+    <li class="list-group-item"><strong>Phone: </strong>(login to see)</li>
+    {% endif %}
 </ul>
 
 {% endblock %}
