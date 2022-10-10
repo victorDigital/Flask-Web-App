@@ -4,3 +4,4 @@ Flask-SQLAlchemy==3.0.0
 gunicorn==20.1.0
 Werkzeug==2.2.2
 randfacts==0.18.0
+Flask-Markdown==0.3
