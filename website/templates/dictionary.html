@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block title %}Dictionary{% endblock %} {% block content %}
+<form method="POST">
+    <h3 align="center">Ordbog</h3>
+    <div class="form-group">
+        <label for="word">Ord</label>
+        <input type="word" class="form-control" id="word" name="word" placeholder="Indtast ord" />
+        <br>
+        <button type="submit" class="btn btn-primary">Søg i ordbog</button>
+    </div>
+</form>
+{% if word %}
+<br>
+<h3 align="center">Resultat på {{ word.word }}</h3>
+<ul class="list-group">
+    {% for deff in word.deff %}
+    {% if deff == word.deff[0] %}
+    <li class="list-group-item" style="border: 3px solid black"><strong>{{ deff }}</strong></li>
+</ul>
+<br>
+{% if word.deff|length > 1 %}
+<p align="center"><strong>alternativ beskrivelse(r)</strong></p>
+{% endif %}
+<ul class="list-group">
+    {% else %}
+    <li class="list-group-item">{{ deff }}</li>
+    {% endif %}
+    {% endfor %}
+</ul>
+</h3>
+{% endif %}
+
+{% endblock %}

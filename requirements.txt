@@ -6,3 +6,5 @@ Werkzeug==2.2.2
 randfacts==0.18.0
 Flask-Markdown==0.3
 requests==2.28.1
+beautifulsoup4==4.11.1
+bs4==0.0.1

@@ -4,6 +4,8 @@ from flask import Blueprint, render_template, url_for, redirect, request, flash
 from flask_login import login_required, current_user
 import markdown.extensions.fenced_code
 import randfacts
+import requests
+from bs4 import BeautifulSoup
 
 
 views = Blueprint('views', __name__)
@@ -41,4 +43,30 @@ def projects():
     md3 = markdown.Markdown()
     readme_file3 = requests.get(link3)
     html3 = md3.convert(readme_file3.text)
-    return render_template("projects.html", user=current_user, html1=html1, html2=html2, html3=html3)
+    link4 = 'https://raw.githubusercontent.com/victorDigital/dictionary-api-python/main/README.md'
+    md4 = markdown.Markdown()
+    readme_file4 = requests.get(link4)
+    html4 = md4.convert(readme_file4.text)
+    return render_template("projects.html", user=current_user, html1=html1, html2=html2, html3=html3, html4=html4)
+
+
+@views.route('/projects/dictionary', methods=['GET', 'POST'])
+@login_required
+def dictionary():
+    if request.method == 'POST':
+        query = request.form.get('word')
+        link = f"https://ordnet.dk/ddo/ordbog?query={query}"
+        r = requests.get(link)
+        soup = BeautifulSoup(r.text, "html.parser")
+        deffRaw = soup.find_all("span", class_="definition")
+        deffPure = [i.text for i in deffRaw]
+        wordRaw = soup.find_all("span", class_="match")
+        wordPure = wordRaw[0].text
+        word = {"word": wordPure, "deff": deffPure}
+        print(word)
+        if word == {}:
+            flash('Word not found', category='error')
+        else:
+            return render_template("dictionary.html", user=current_user, word=word)
+    else:
+        return render_template("dictionary.html", user=current_user)
