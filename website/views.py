@@ -54,16 +54,21 @@ def projects():
 @login_required
 def dictionary():
     if request.method == 'POST':
-        query = request.form.get('word')
-        link = f"https://ordnet.dk/ddo/ordbog?query={query}"
-        r = requests.get(link)
-        soup = BeautifulSoup(r.text, "html.parser")
-        deffRaw = soup.find_all("span", class_="definition")
-        deffPure = [i.text for i in deffRaw]
-        wordRaw = soup.find_all("span", class_="match")
-        wordPure = wordRaw[0].text
-        word = {"word": wordPure, "deff": deffPure}
-        print(word)
+        try:
+            query = request.form.get('word')
+            link = f"https://ordnet.dk/ddo/ordbog?query={query}"
+            r = requests.get(link)
+            soup = BeautifulSoup(r.text, "html.parser")
+            deffRaw = soup.find_all("span", class_="definition")
+            deffPure = [i.text for i in deffRaw]
+            wordRaw = soup.find_all("span", class_="match")
+            wordPure = wordRaw[0].text
+            word = {"word": wordPure, "deff": deffPure}
+            print(word)
+        except Exception as e:
+            print(e)
+            flash("No word found", category='error')
+            return redirect(url_for('views.dictionary'))
         if word == {}:
             flash('Word not found', category='error')
         else:

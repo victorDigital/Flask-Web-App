@@ -17,8 +17,10 @@
     <li class="list-group-item" style="border: 3px solid black"><strong>{{ deff }}</strong></li>
 </ul>
 <br>
-{% if word.deff|length > 1 %}
-<p align="center"><strong>alternativ beskrivelse(r)</strong></p>
+{% if word.deff|length == 2 %}
+<p align="center"><strong>alternativ beskrivelse</strong></p>
+{% elif word.deff|length > 2 %}
+<p align="center"><strong>alternative beskrivelser</strong></p>
 {% endif %}
 <ul class="list-group">
     {% else %}
