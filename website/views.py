@@ -29,7 +29,6 @@ def contact():
 
 
 @views.route('/projects')
-@login_required
 def projects():
     link1 = 'https://raw.githubusercontent.com/victorDigital/p5weather/main/README.md'
     md1 = markdown.Markdown()
@@ -47,7 +46,7 @@ def projects():
     md4 = markdown.Markdown()
     readme_file4 = requests.get(link4)
     html4 = md4.convert(readme_file4.text)
-    return render_template("projects.html", user=current_user, html1=html1, html2=html2, html3=html3, html4=html4)
+    return render_template("projects.html", html1=html1, html2=html2, html3=html3, html4=html4)
 
 
 @views.route('/projects/dictionary', methods=['GET', 'POST'])
