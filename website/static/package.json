@@ -1,7 +1,5 @@
 {
   "dependencies": {
-    "@swup/preload-plugin": "^1.0.5",
-    "swup": "^2.0.19",
-    "swup-morph-plugin": "^0.2.1"
+    "swup": "^2.0.19"
   }
 }
