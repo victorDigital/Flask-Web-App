@@ -6,4 +6,31 @@
 <h1>Welcome</h1>
 {% endif %}
 <hr class="border" />
+<ul class="flex-container">
+    <li class="flex-item">
+        <div class="card" style="max-width: 18rem;">
+            <img src="https://cdn.britannica.com/82/203482-050-E2ABDA79/People-fireworks.jpg?q=60" class="card-img-top"
+                alt="fireworks">
+            <div class="card-body">
+                <h5 class="card-title">Wow! It's happening</h5>
+                <p class="card-text">Did you know, i just learned about Bootstrap, flask, Node, Swup and so much more,
+                    and you
+                    are using what i made with it, thank you!</p>
+                <a href="/about" class="btn btn-primary">Read more</a>
+            </div>
+        </div>
+    </li>
+    <li class="flex-item">
+        <div class="card" style="max-width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Latest project</h5>
+                <h6 class="card-text">dictionary-api-python</h6>
+                <p class="card-text">This is a simple API for a Danish dictionary site. It is written in Python and is
+                    accessible to try using the link below</p>
+                <a href="/projects/dictionary" class="btn btn-primary">Try in browser</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
 {% endblock %}
