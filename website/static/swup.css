@@ -17,15 +17,49 @@ html.is-leaving .transition-fade {
     filter: blur(10px);
 }
 
-li {
-    transition: all 0.3s;
-    border-width: 1px;
+.flex-container {
+    flex-wrap: wrap;
 }
 
-li:hover {
-    border-width: 5px;
+img {
+    border-radius: 0.375rem;
 }
 
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    -ms-box-orient: horizontal;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    transition: all 0.1s;
+}
+
+.flex-item {
+    padding: 5px;
+    width: fit-content;
+    min-width: 87px;
+    height: fit-content;
+    margin: 10px;
+    transition: all 0.1s;
+}
+
+@media screen and (max-width: 600px) {
+    .flex-container {
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+    }
+
+}
 
 @media(prefers-color-scheme: dark) {
     .dark-mode {
