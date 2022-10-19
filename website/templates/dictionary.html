@@ -14,7 +14,7 @@
 <ul class="list-group">
     {% for deff in word.deff %}
     {% if deff == word.deff[0] %}
-    <li class="list-group-item" style="border: 3px solid black"><strong>{{ deff }}</strong></li>
+    <li class="list-group-item main-result"><strong>{{ deff }}</strong></li>
 </ul>
 <br>
 {% if word.deff|length == 2 %}
