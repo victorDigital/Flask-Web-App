@@ -34,15 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.classList.remove('dark-mode');
         darkModeOn = false;
     }
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        darkModeOn = true;
-    } else {
-        if (document.body.classList.contains('dark-mode')) {
-            darkModeOn = true;
-        } else {
-            darkModeOn = false;
-        }
-    }
     if (darkModeOn) {
         if (!document.body.classList.contains('dark-mode')) {
             document.body.classList.add('dark-mode');
