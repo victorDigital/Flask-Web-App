@@ -13,6 +13,10 @@
         crossorigin="anonymous" />
     <link rel="stylesheet" href="{{ url_for('static', filename='swup.css') }}" />
     <script defer src="{{ url_for('static', filename='node_modules/swup/dist/swup.min.js') }}"></script>
+    <script defer
+        src="{{ url_for('static', filename='node_modules/@swup/slide-theme/dist/SwupSlideTheme.min.js') }}"></script>
+    <script defer
+        src="{{ url_for('static', filename='node_modules/@swup/progress-plugin/dist/SwupProgressPlugin.min.js') }}"></script>
     <script defer src="{{ url_for('static', filename='mySwup.js') }}"></script>
 
     <title>{% block title %}Home{% endblock %}</title>
@@ -78,7 +82,7 @@
     </div>
     {% endif %} {% endfor %} {% endif %} {% endwith %}
     <br>
-    <div id="swup" class="transition-fade container">{% block content %} {% endblock %}</div>
+    <div id="swup" class="swup-transition-main container">{% block content %} {% endblock %}</div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>

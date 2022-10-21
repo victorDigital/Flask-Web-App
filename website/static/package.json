@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@swup/progress-plugin": "^1.2.1",
+    "@swup/slide-theme": "^1.0.5",
     "swup": "^2.0.19"
   }
 }
