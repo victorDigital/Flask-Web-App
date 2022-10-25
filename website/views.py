@@ -15,18 +15,15 @@ views = Blueprint('views', __name__)
 def home():
     return render_template("home.html")
 
-
 @views.route('/about')
 def index():
     fact = randfacts.getFact()
     print(fact)
     return render_template("about.html", fact=fact)
 
-
 @views.route('/contact')
 def contact():
     return render_template("contact.html")
-
 
 @views.route('/projects')
 def projects():
@@ -47,7 +44,6 @@ def projects():
     readme_file4 = requests.get(link4)
     html4 = md4.convert(readme_file4.text)
     return render_template("projects.html", html1=html1, html2=html2, html3=html3, html4=html4)
-
 
 @views.route('/projects/dictionary', methods=['GET', 'POST'])
 @login_required
